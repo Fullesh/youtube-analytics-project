@@ -22,6 +22,9 @@ class Channel:
     def __str__(self):
         return f"{self.title} ({self.url})"
 
+    def __add__(self, other):
+        return int(self.subscribers) + int(other.subscribers)
+
     def print_info(self) -> str:
         """Выводит в консоль информацию о канале."""
         channel = self.youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()

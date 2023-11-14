@@ -18,18 +18,22 @@ class Channel:
         self.subscribers = self.info['items'][0]['statistics']['subscriberCount']
         self.video_count = self.info['items'][0]['statistics']['videoCount']
         self.total_views = self.info['items'][0]['statistics']['viewCount']
+        self.subscribers = int(self.subscribers)
 
     def __str__(self):
         return f"{self.title} ({self.url})"
 
     def __add__(self, other):
-        return int(self.subscribers) + int(other.subscribers)
+        return self.subscribers + int(other.subscribers)
 
     def __sub__(self, other):
-        return int(self.subscribers) - int(other.subscribers)
+        return self.subscribers - int(other.subscribers)
 
     def __gt__(self, other):
-        return int(self.subscribers) > int(other.subscribers)
+        return self.subscribers > int(other.subscribers)
+
+    def __ge__(self, other):
+        return self.subscribers >= int(other.subscribers)
 
     def print_info(self) -> str:
         """Выводит в консоль информацию о канале."""

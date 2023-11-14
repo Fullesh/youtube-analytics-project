@@ -19,6 +19,9 @@ class Channel:
         self.video_count = self.info['items'][0]['statistics']['videoCount']
         self.total_views = self.info['items'][0]['statistics']['viewCount']
 
+    def __str__(self):
+        return f"{self.title} ({self.url})"
+
     def print_info(self) -> str:
         """Выводит в консоль информацию о канале."""
         channel = self.youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()

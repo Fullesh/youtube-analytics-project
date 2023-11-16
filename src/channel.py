@@ -35,6 +35,9 @@ class Channel:
     def __ge__(self, other):
         return self.subscribers >= int(other.subscribers)
 
+    def __eq__(self, other):
+        return self.subscribers == int(other.subscribers)
+
     def print_info(self) -> str:
         """Выводит в консоль информацию о канале."""
         channel = self.youtube.channels().list(id=self.__channel_id, part='snippet,statistics').execute()

@@ -24,3 +24,6 @@ class PLVideo(Video):
         super().__init__(video_id)
         self.video_playlist_id = video_playlist_id
         print(json.dumps(self.video_response, indent=4))
+
+    def __str__(self):
+        return self.video_title

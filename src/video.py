@@ -17,3 +17,10 @@ class Video:
 
     def __str__(self):
         return self.video_title
+
+
+class PLVideo(Video):
+    def __init__(self, video_id, video_playlist_id):
+        super().__init__(video_id)
+        self.video_playlist_id = video_playlist_id
+        print(json.dumps(self.video_response, indent=4))

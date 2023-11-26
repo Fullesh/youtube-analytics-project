@@ -14,3 +14,6 @@ class Video:
         self.video_url = 'www.youtube.com/watch?='+self.video_id
         self.views = self.video_response['items'][0]['statistics']['viewCount']
         self.likes = self.video_response['items'][0]['statistics']['likeCount']
+
+    def __str__(self):
+        return self.video_title

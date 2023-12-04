@@ -18,7 +18,6 @@ class Video:
             self.like_count = self.video_response['items'][0]['statistics']['likeCount']
         except IndexError:
             print('Несуществующий id видео')
-        finally:
             self.video_response = None
             self.title = None
             self.video_url = None
